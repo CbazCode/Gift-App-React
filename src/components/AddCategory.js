@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+
 export const AddCategory = ({setCategoriesSended})=>{
 
     const [inputValue, setInputValue] = useState('')
@@ -12,8 +13,9 @@ export const AddCategory = ({setCategoriesSended})=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(inputValue.trim().length > 2){
-            setCategoriesSended(cats =>[...cats,inputValue]);
+            setCategoriesSended(cats =>[inputValue,...cats]);
             setInputValue('');
+            document.getElementById('entrada').placeholder= '';
         }
 
     }
@@ -21,7 +23,8 @@ export const AddCategory = ({setCategoriesSended})=>{
     return (
     
              <form onSubmit = {handleSubmit}>
-                <input type='text'
+                <input id="entrada"
+                 type='text'
                 value ={inputValue}
                 onChange = {handleInputChange}
                 placeholder = 'Inserte categoria aqui'
