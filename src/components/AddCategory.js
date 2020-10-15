@@ -11,6 +11,7 @@ export const AddCategory = ({setCategoriesSended})=>{
     }
 
     const handleSubmit = (e)=>{
+        //si yo quitara el e.preventDefault renderizaria denuevo este componente tmb
         e.preventDefault();
         if(inputValue.trim().length > 2){
             setCategoriesSended(cats =>[inputValue,...cats]);
